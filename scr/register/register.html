@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Register</title>
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Go up one folder to access styles.css -->
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <form id="register-form">
@@ -11,11 +12,12 @@
     <input type="email" id="register-email" placeholder="Email" required />
     <input type="password" id="register-password" placeholder="Password" required />
     <button type="submit">Register</button>
-    <p>Already have an account? <a href="index.html">Login</a></p>
+    <p><a href="../index.html">Back to Login</a></p>
   </form>
 
   <script type="module">
-    import { auth } from './firebase.js';
+    // Go up one folder to access firebase.js
+    import { auth } from '../firebase.js';
     import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
     const form = document.getElementById('register-form');
@@ -27,7 +29,7 @@
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         alert("✅ Registration successful!");
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
       } catch (error) {
         alert("❌ Registration failed: " + error.message);
       }
